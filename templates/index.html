@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is My Machine Learning Project </h1>
+    <from action="/predict" method="POST">
+          
+    <br>
+    <label> Enter your Age in Years:</label>
+    <input type="number" name = "age" required = "required">
+    <br>
+    <label> Enter Your Weight in Kgs:</label>
+    <input type="number" name = "weight" required = "required">
+    <br>
+    <label> Enter Your Height in cms:</label>
+    <input type="number" name = "height" required = "required">
+    <br>
+    <label> Enter your High BP:</label>
+    <input type="number" name = "ap_hi" required = "required">
+    <br>
+    <label> Enter your Low BP:</label>
+    <input type="number" name = "ap_low" required = "required">
+    <br>
+    <label for="gender">Gender</label>
+    <select id="gender" name="gender">Select Your Gender:
+        <option value ='male'>Male</option>
+        <option value = "Female">Female</option>
+    </select>
+    <br>
+    <label> Enter your Cholestrol:</label>
+    <select name="cholestrol">
+         <option value ="1">Normal</option>
+         <option value ="2">Above Normal</option>
+         <option value ="2">Well Above Normal</option>
+    
+        </select>
+    <br>
+    <label> Enter your Glucose level:</label>
+    <select name="gluc">
+         <option value ="1">Normal</option>
+         <option value ="2">Above Normal</option>
+         <option value ="2">Well Above Normal</option>
+    
+        </select>
+    <br>
+    <label> Smoker:</label>
+    <select name="smoke">
+         <option value ="1">Smoker</option>
+         <option value ="2">Non Smoker</option>    
+        </select>
+    <br>
+    <label> Alcoholic:</label>
+    <select name="alco">
+         <option value ="1">Alcoholic</option>
+         <option value ="2"> Non Alcoholic</option>    
+        </select>
+    <br>
+    <label> Active:</label>
+    <select name="active">
+         <option value ="1">Physical Active</option>
+         <option value ="2"> Not Active</option>    
+        </select>
+    <br>
+    <button type="submit">Submit</button>
+</form>
+<br>
+       {{ age }}
+       {{ height }}
+       {{ weight }}
+       {{ ap_hi }}
+       {{ ap_lo }}
+       {{ gender }}
+       {{ cholesterol }}
+       {{ glucose }}
+       {{ smoke }}
+       {{ alcohol }}
+       {{ active }}
+
+</body>
+</html>
