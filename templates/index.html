@@ -6,79 +6,105 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>This is My Machine Learning Project </h1>
-    <from action="/predict" method="POST">
-          
-    <br>
-    <label> Enter your Age in Years:</label>
-    <input type="number" name = "age" required = "required">
-    <br>
-    <label> Enter Your Weight in Kgs:</label>
-    <input type="number" name = "weight" required = "required">
-    <br>
-    <label> Enter Your Height in cms:</label>
-    <input type="number" name = "height" required = "required">
-    <br>
-    <label> Enter your High BP:</label>
-    <input type="number" name = "ap_hi" required = "required">
-    <br>
-    <label> Enter your Low BP:</label>
-    <input type="number" name = "ap_low" required = "required">
-    <br>
-    <label for="gender">Gender</label>
-    <select id="gender" name="gender">Select Your Gender:
-        <option value ='male'>Male</option>
-        <option value = "Female">Female</option>
-    </select>
-    <br>
-    <label> Enter your Cholestrol:</label>
-    <select name="cholestrol">
-         <option value ="1">Normal</option>
-         <option value ="2">Above Normal</option>
-         <option value ="2">Well Above Normal</option>
-    
-        </select>
-    <br>
-    <label> Enter your Glucose level:</label>
-    <select name="gluc">
-         <option value ="1">Normal</option>
-         <option value ="2">Above Normal</option>
-         <option value ="2">Well Above Normal</option>
-    
-        </select>
-    <br>
-    <label> Smoker:</label>
-    <select name="smoke">
-         <option value ="1">Smoker</option>
-         <option value ="2">Non Smoker</option>    
-        </select>
-    <br>
-    <label> Alcoholic:</label>
-    <select name="alco">
-         <option value ="1">Alcoholic</option>
-         <option value ="2"> Non Alcoholic</option>    
-        </select>
-    <br>
-    <label> Active:</label>
-    <select name="active">
-         <option value ="1">Physical Active</option>
-         <option value ="2"> Not Active</option>    
-        </select>
-    <br>
-    <button type="submit">Submit</button>
-</form>
-<br>
-       {{ age }}
-       {{ height }}
-       {{ weight }}
-       {{ ap_hi }}
-       {{ ap_lo }}
-       {{ gender }}
-       {{ cholesterol }}
-       {{ glucose }}
-       {{ smoke }}
-       {{ alcohol }}
-       {{ active }}
+    <h1><center><i>Welcome to My Machine Learning WebPage</i></center></h1>
+    <form action="/predict" method="post">
+          <label> Enter Your Age In Years:</label>
+          <input type ="number" name="age" required ="required">
+          <br>
 
+          <label> Enter Your Height</label>
+          <input type="number" name="height" required ="required">
+          <br>
+
+          <label> Enter Your Weight in kgs:</label>
+          <input type="number" name="weight" required ="required">
+          <br>
+
+          <label> Enter Hight-BP</label>
+          <input type="number" name="ap_hi" required ="required">
+          <br>
+          
+          <label> Enter Low-BP</label>
+          <input type="number" name="ap_lo" required ="required">
+          <br>
+          <label> Enter BMI</label>
+          <input type="number" name="bmi" required ="required">
+          <br>
+          <label>Gender</label>
+          <select name="gender">
+          <option value="1">Female</option>
+          <option value="2">male</option>
+          </select>
+
+           <br>
+
+          <label>Cholesterol</label>
+          <select name="cholesterol">
+          <option value="1">Normal</option>
+          <option value="2">Above Normal</option>
+          <option value="3">Well above Normal</option>
+          </select>
+
+          <br>
+
+          </select>
+          <label>Glucose</label>
+          <select name="Glucose">
+          <option value="1">Normal</option>
+          <option value="2">Above Normal</option>
+          <option value="3">Well above Normal</option>
+          </select>
+
+          <br>
+
+          </select>
+          <label>Smoke</label>
+          <select name="Smoke">
+          <option value="1">Smoker</option>
+          <option value="2">Non_smoker</option>
+          </select>
+           
+          <br>
+<!-- doubt -->
+          </select>
+          <label>Alcohol</label>
+          <select name="Alcohol">
+          <option value="1">yes</option>  
+          <option value="2">No</option>
+          </select>
+
+          <br>
+
+          </select>
+          <label>Active</label>
+          <select name="Actve">
+          <option value="1">Physical_Active</option>
+          <option value="2">No_Physical_Active</option>
+          </select>
+        <br>
+        <label>BP Category</label>
+          <select name="bp_category">
+          <option value="Normal">Normal</option>
+          <option value="Elevated">Elevated</option>
+          <option value="Hypertension Stage 1">Hypertension Stage 1</option>
+          <option value="Hypertension Stage 2">Hypertension Stage 2</option>
+          <option value="Hypertensive Crisis">Hypertensive Crisis</option>
+          </select>
+        <br>
+        <button type="submit">Submit</button>
+      </form>
+      
+     
+
+
+  </label>
+
+  {{ data }}
+
+
+
+
+
+    
 </body>
 </html>

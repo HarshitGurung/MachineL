@@ -1,36 +1,67 @@
 import pickle
-from flask import Flask , render_template , request
+
+from flask import Flask, render_template, request
 import numpy as np
 import pandas as pd
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import StandardScaler,RobustScaler
+from sklearn.preprocessing import OneHotEncoder
+
 
 app = Flask(__name__)
-model = pickle.load(open("xgb_classifier.pkl","rb"))
+model = pickle.load(open('xgb_classifier.pkl','rb'))
+
+# post, get
 
 @app.route("/",methods=['GET'])
 def Home():
     return render_template("index.html")
 
-@app.route("/predict", methods = ['POST'])
-
+@app.route("/predict",methods=['POST'])
 def prediction():
+
     if request.method == 'POST':
+        age = float(request.form.get("age"))
+        height = float(request.form.get("height"))
+        weight = float(request.form.get("weight"))
+        ap_hi = float(request.form.get("ap_hi"))
+        ap_lo = float(request.form.get("ap_lo"))
+        gender = float(request.form.get("gender"))
+        cholesterol = float(request.form.get("cholesterol"))
+        glucose = float(request.form.get("Glucose"))
+        smoke = float(request.form.get("Smoke"))
+        alcohol = float(request.form.get("Alcohol"))
+        active = float(request.form.get("Actve"))
+        bmi = float(request.form.get("bmi"))
+        bp_category = request.form.get("bp_category")
+
+        bp_cat = [0,0,0]
+
+        if bp_category=='Normal':
+            bp_cat[2]=1
+        elif bp_category=='Hypertension Stage 1':
+            bp_cat[0]=1
+        elif bp_category=='Hypertension Stage 2':
+            bp_cat[1]=1
+
+        inputs = [height,weight,ap_hi,ap_lo,age,gender,
+                  cholesterol,glucose,smoke,alcohol,active]
+        
+        inputs.extend(bp_cat)
+        inputs = np.array(inputs).reshape(1,-1)
+
+        
+        pred = model.predict(inputs)
+
+        if pred[0]==0:
+            prediction = 'No disease'
+        else:
+            prediction='Disease'
 
 
-         age = request.form.get("age")
-         height = request.form.get("height")
-         weight = request.form.get("weight")
-         ap_hi = request.form.get("ap_hi")
-         ap_lo = request.form.get("ap_lo")
-         gender = request.form.get("gender")
-         cholesterol = request.form.get("cholesterol")
-         glucose = request.form.get("glucose")
-         smoke = request.form.get("smoke")
-         alcohol = request.form.get("alcohol")
-         active = request.form.get("actve")
 
-    return render_template("index.html", age = age, height=height, weight = weight, ap_hi=ap_hi, ap_lo=ap_lo,
-                          gender=gender, cholesterol =cholesterol, glucose =glucose, smoke=smoke,
-                          alcohol=alcohol, active=active)
+    return render_template("index1.html",data=prediction)
 
 if __name__=='__main__':
-   app.run(debug=True)
+    app.run(debug=True)
+
